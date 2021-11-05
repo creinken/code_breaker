@@ -8,7 +8,7 @@ Feature: code-breaker submits guess
     the mark includes one - sign.
 
     Scenario Outline: submit guess
-        Given the secret code in "<code>"
+        Given the secret code is "<code>"
         When I guess "<guess>"
         Then the mark should be "<mark>"
 
