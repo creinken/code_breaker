@@ -1,23 +1,23 @@
 class Output
-    def messages
-      @messages ||= []
-    end
-    def puts(message)
-      messages << message
-    end
+  def messages
+    @messages ||= []
   end
-  def output
-    @output = Output.new
+
+  def puts(message)
+    messages << message
   end
+end
+
+output = Output.new
   
-  Given /^I am not yet playing$/ do
-  end
+Given /^I am not yet playing$/ do
+end
   
-  When /^I start a new game$/ do
-    game = Codebreaker::Game.new(output)
-    game.start
-  end
+When /^I start a new game$/ do
+  game = Codebreaker::Game.new(output)
+  game.start
+end
   
-  Then /^I should see "([^"]*)"$/ do |message|
-    output.messages.should include(message)
-  end
+Then /^I should see "([^"]*)"$/ do |message|
+  expect(output.messages).to include(message)
+end
